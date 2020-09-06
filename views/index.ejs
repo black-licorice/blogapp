@@ -1,0 +1,32 @@
+<%-include("partials/header")%>
+	<h1 class="ui huge header" id="gradient-text">RESTful Blog</h1>
+		<div class="ui main text container" id="container">
+			<% blogs.forEach(function(blog){%>
+				<div class="ui main text container segment">
+					<div class="ui devided items">
+						<div class="ui top attached">
+							<h2><%=blog.title%></h2>
+							<div class="item">
+								<img class="ui centered rounded image" src="<%=blog.image%>" alt="/">
+							</div>
+							<div class="content">
+								<a class="header"href="/blogs/<%=blog._id%>"><%=blog.title%></a>
+								<div class="meta">
+									<span class="createdDate">Created: <%=blog.created.toDateString()%></span>
+								</div>
+							</div>
+							<div class="description">
+								<p><%-blog.body.substring(0, 150)%>...</p>
+							</div>
+							<div class="extra">
+								<a class="ui floated inverted violet button" href="/blog/<%=blog._id%>">
+									Read More
+									<i class="right chevron icon"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			<%});%>
+		</div>
+<%-include("partials/footer")%>
