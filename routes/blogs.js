@@ -1,8 +1,13 @@
 //INITIALIZE
-var express = require("express");
-var router = express();
-var Blog = require("../models/blog");
+var express    = require("express");
+var router     = express.Router({mergeParams: true});
+var Blog       = require("../models/blog");
 const mongoose = require("mongoose");
+var middleWare = require("../middleware");
+
+//===================================
+//=req.body.body = undefined line 33=
+//===================================
 
 //ROUTES
 router.get("/", function(req, res){
@@ -19,13 +24,21 @@ router.get("/blog", function(req, res){
 	});
 });
 //new
-router.get("/blog/new", function(req, res){
-	res.render("new")
+router.get("/blog/new", middleWare.isLoggedIn, function(req, res){
+	res.render("new");
 });
 //post logic
 router.post("/blog", function(req, res){
-	req.body.blog.body = req.sanitize(req.body.blog.body);
-	Blog.create(req.body.blog, function(err, newBlog){
+	req.body.body = req.sanitize(req.body.blog.body);
+	var author = {
+		id: req.user._id,
+		username: req.user.username
+	}
+	var title = req.body.title;
+	var image = req.body.image;
+	var body = req.body.body;
+	var newBlog = {title: title, image: image, body: body, author: author};
+	Blog.create(newBlog, function(err, newlyCreated){
 		if(err){
 			console.log("OH NO", err);
 			res.render("new");
@@ -33,6 +46,14 @@ router.post("/blog", function(req, res){
 			res.redirect("/blog");
 		}
 	});
+	// Blog.create(req.body.blog, function(err, newBlog){
+	// 	if(err){
+	// 		console.log("OH NO", err);
+	// 		res.render("new");
+	// 	}else{
+	// 		res.redirect("/blog");
+	// 	}
+	// });
 });
 //show
 router.get("/blog/:id", function(req, res){
@@ -46,7 +67,7 @@ router.get("/blog/:id", function(req, res){
 	});
 });
 //edit
-router.get("/blog/:id/edit", function(req, res){
+router.get("/blog/:id/edit", middleWare.isAuthor, function(req, res){
 	Blog.findById(req.params.id, function(err, foundBlog){
 		if(err){
 			console.log("OH NO", err);
@@ -56,7 +77,7 @@ router.get("/blog/:id/edit", function(req, res){
 	});
 });
 //update
-router.put("/blog/:id", function(req, res){
+router.put("/blog/:id", middleWare.isAuthor, function(req, res){
 	req.body.blog.body = req.sanitize(req.body.blog.body);
 	Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
 		if(err){
@@ -68,7 +89,7 @@ router.put("/blog/:id", function(req, res){
 	});
 });
 //destroy
-router.delete("/blog/:id", function(req, res){
+router.delete("/blog/:id", middleWare.isAuthor, function(req, res){
 	Blog.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log("OH NO", err);
