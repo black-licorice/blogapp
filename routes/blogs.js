@@ -29,14 +29,14 @@ router.get("/blog/new", middleWare.isLoggedIn, function(req, res){
 });
 //post logic
 router.post("/blog", function(req, res){
-	req.body.body = req.sanitize(req.body.blog.body);
+	req.body.blog[body] = req.sanitize(req.body.blog.body);
 	var author = {
 		id: req.user._id,
 		username: req.user.username
 	}
-	var title = req.body.title;
-	var image = req.body.image;
-	var body = req.body.body;
+	var title = req.body.blog[title];
+	var image = req.body.blog[image];
+	var body = req.body.blog[body];
 	var newBlog = {title: title, image: image, body: body, author: author};
 	Blog.create(newBlog, function(err, newlyCreated){
 		if(err){

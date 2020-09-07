@@ -1,7 +1,7 @@
 <%-include("partials/header")%>
 	<h1 class="ui huge header" id="gradient-text">RESTful Blog</h1>
 		<div class="ui main text container" id="container">
-			<% blogs.forEach(function(blog){%>
+			<% blogs.forEach(function(blog, index, arr){%>
 				<div class="ui main text container segment">
 					<div class="ui devided items">
 						<div class="ui top attached">
@@ -26,7 +26,9 @@
 							</div>
 						</div>
 					</div>
-					<hr class="horizontal-rule">
+					<% if(index != arr.length -1){%>
+						<hr class="horizontal-rule">
+					<%}%>
 				</div>
 			<%});%>
 		</div>

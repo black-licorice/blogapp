@@ -33,18 +33,14 @@ body{
 	background-attachment: fixed
 	
 }
-#container{
-	margin-bottom: 250px;
-	background: #000;
-	color: #bc30db;
-	border-radius: 5%;
-}
 .ui.segment{
 	background: #000;
-	border-radius: 5%;
 }
 .horizontal-rule{
-	color: #E3DEE5;
+	border-top: 2px solid #E3DEE5; 
+}
+#container{
+	margin-bottom: 100px;
 }
 #newPost{
 	margin: auto;
@@ -71,4 +67,12 @@ body{
   -webkit-text-fill-color: transparent; 
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+}
+.ui.main.text.container.segment{
+	margin-bottom:0;
+	margin-top:0 ;
+}
+
+.ui.top.attached h2{
+	color: #bc30db;
 }
