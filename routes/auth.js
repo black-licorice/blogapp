@@ -26,7 +26,7 @@ router.get("/login", function(req, res){
 });
 //LOGIN LOGIC
 router.post("/login", passport.authenticate("local", {
-	successRedirect: "/",
+	successRedirect: "/blog",
 	failureRedirect: "/login"
 }), function(req, res){
 });
@@ -34,7 +34,7 @@ router.post("/login", passport.authenticate("local", {
 router.get("/logout", function(req, res){
 	req.logout();
 	req.flash("success", "Logged out");
-	res.redirect("/");
+	res.redirect("/blog");
 });
 
 //EXPORTS

@@ -1,0 +1,28 @@
+body{
+	background: linear-gradient(-45deg, #E275FF, #000);
+	background-repeat: no-repeat;
+	background-attachment: fixed
+	
+}
+#margin-auto{
+	display: block;
+ 	margin: 0 auto;
+	position: relative;
+	top: 40%;
+	width: 30%;
+	text-align: center;
+}
+#gradient-text2 {
+	background-color: red;
+	background-image: linear-gradient(-45deg, #6432AC, #CC3CBB);
+ 	background-size: 100%;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+ 	-webkit-text-fill-color: transparent; 
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	text-shadow: 3px 2px rgba(0, 0, 0, 0.2);
+}
+.ui.inverted.purple.button{
+	width: 100%;
+}

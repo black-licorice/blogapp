@@ -7,7 +7,11 @@ var middleWare = require("../middleware");
 
 //ROUTES
 router.get("/", function(req, res){
-	res.redirect("/blog");
+	res.render("landing");
+});
+//about
+router.get("/blog/about", function(req, res){
+	res.render("about");
 });
 //index
 router.get("/blog", function(req, res){

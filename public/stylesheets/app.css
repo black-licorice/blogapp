@@ -95,3 +95,29 @@ body{
 a.header{
 	color: #bc30db;
 }
+#about{
+	background: #000;
+	width: 40%;
+	border-radius: 10%;
+	text-align: center;
+	color: #bc30db;
+	margin: 0 auto;
+	position: relative;
+	top: 20%;
+	height: 60%;
+	padding: 12px;
+	font-size: 1.5em;
+}
+.username.right{
+	text-align: right;
+}
+.ui.header.about{
+  background-color: red;
+  background-image: linear-gradient(-45deg, #25c4a2, #c9b426);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
