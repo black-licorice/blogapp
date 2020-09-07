@@ -9,7 +9,6 @@ var LocalStrategy    = require("passport-local");
 var flash       	 = require("connect-flash");
 const mongoose       = require("mongoose");
 
-
 //DATABASE
 mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
