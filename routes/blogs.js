@@ -5,15 +5,14 @@ var Blog       = require("../models/blog");
 const mongoose = require("mongoose");
 var middleWare = require("../middleware");
 
-router.set("view engine", "ejs");
 
 //ROUTES
 router.get("/", function(req, res){
-	res.render("landing");
+	res.render("landing.ejs");
 });
 //about
 router.get("/blog/about", function(req, res){
-	res.render("about");
+	res.render("about.ejs");
 });
 //index
 router.get("/blog", function(req, res){
@@ -21,13 +20,13 @@ router.get("/blog", function(req, res){
 		if(err){
 			console.log("OH NO", err);
 		}else{
-			res.render("index", {blogs: blogs});
+			res.render("index.ejs", {blogs: blogs});
 		}
 	});
 });
 //new
 router.get("/blog/new", middleWare.isLoggedIn, function(req, res){
-	res.render("new");
+	res.render("new.ejs");
 });
 //post logic
 router.post("/blog", function(req, res){
@@ -43,7 +42,7 @@ router.post("/blog", function(req, res){
 	Blog.create(newBlog, function(err, newlyCreated){
 		if(err){
 			console.log("OH NO", err);
-			res.render("new");
+			res.render("new.ejs");
 		}else{
 			res.redirect("/blog");
 		}
@@ -56,7 +55,7 @@ router.get("/blog/:id", function(req, res){
 			console.log("OH NO", err);
 			res.redirect("/blog");
 		}else{
-			res.render("show", {blog: foundBlog});
+			res.render("show.ejs", {blog: foundBlog});
 		}
 	});
 });
@@ -66,7 +65,7 @@ router.get("/blog/:id/edit", middleWare.isAuthor, function(req, res){
 		if(err){
 			console.log("OH NO", err);
 		}else{
-			res.render("edit", {blog: foundBlog});
+			res.render("edit.ejs", {blog: foundBlog});
 		}
 	});
 });
