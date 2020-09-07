@@ -3,6 +3,9 @@ var express  = require("express");
 var router   = express.Router({mergeParams: true});
 var passport = require("passport");
 var User     = require("../models/user");
+
+router.set("view engine", "ejs");
+
 //GET REGISTER FORM
 router.get("/register", function(req, res){
 	res.render("authViews/register");

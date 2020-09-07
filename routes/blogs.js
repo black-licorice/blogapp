@@ -5,6 +5,8 @@ var Blog       = require("../models/blog");
 const mongoose = require("mongoose");
 var middleWare = require("../middleware");
 
+router.set("view engine", "ejs");
+
 //ROUTES
 router.get("/", function(req, res){
 	res.render("landing");
