@@ -22,7 +22,6 @@ mongoose.connect(process.env.DATABASEURL, {
 //CONFIGURATE
 var app = express();
 app.set("view engine", "ejs");
-app.set('views', __dirname + '/views');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
