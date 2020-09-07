@@ -1,6 +1,6 @@
 <%-include("partials/header")%>
 
-	<div class="ui main text container segment">
+	<div class="ui main text container segment" id="showBlog">
 		
 		<h2 class="ui huge header"><%=blog.title%></h2>
 		<div class="ui top attached">
@@ -9,14 +9,17 @@
 			</div>
 			<div class="content">
 				<span class="createdDate">Created: <%=blog.created.toDateString()%></span>
+				<div id="blogBody"><%-blog.body%></div>
 			</div>
-			<p class="blogBody"><%-blog.body%></p>
 		</div>
+		<p id="blogAuthor">Posted by <%=blog.author.username%></p>
 		<a class="ui green inverted button" href="/blog">Back</a>
-		<a class="ui blue inverted button"href="/blog/<%=blog._id%>/edit">EDIT</a>
-		<form class="form-button" action="/blog/<%=blog._id%>?_method=DELETE" method="POST">
-			<button class="ui red inverted button">DELETE</button>
-		</form>
+		<%if(currentUser && blog.author.id.equals(currentUser._id)){%>
+			<a class="ui blue inverted button"href="/blog/<%=blog._id%>/edit">EDIT</a>
+			<form class="form-button" action="/blog/<%=blog._id%>?_method=DELETE" method="POST">
+				<button class="ui red inverted button">DELETE</button>
+			</form>
+		<%}%>
 	</div>
 
 

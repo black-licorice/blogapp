@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/restful_blog_app", {
+mongoose.connect("mongodb://localhost:27017/restful_blog_app_1_1", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 })

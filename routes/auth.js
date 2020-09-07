@@ -15,7 +15,7 @@ router.post("/register", function(req, res){
 			return res.render("authViews/register", {"error": err.message});
 		}
 		passport.authenticate("local")(req, res, function(){
-			req.flash("success", "Welcome to RESTful Blogs" + user.username);
+			req.flash("success", "Welcome to RESTful Blogs " + user.username);
 			res.redirect("/blog");
 		});
 	});

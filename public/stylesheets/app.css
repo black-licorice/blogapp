@@ -1,5 +1,5 @@
 .right.inverted.menu{
-	margin-right: 25px;
+	margin-right: 50px;
 }
 i.icon{
 	font-size: 2rem;
@@ -13,6 +13,10 @@ i.icon{
 }
 .createdDate{
 	color: #bc30db;
+}
+#blogAuthor{
+	color: #bc30db;
+	margin-bottom: 10px;
 }
 .form-button{
 	display: inline;
@@ -51,9 +55,9 @@ body{
 .ui.header{
 	color: #bc30db;
 }
-.blogBody{
+#blogBody{
 	color: purple;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 }
 .description .blogBody{
 	margin-bottom: 15px;
@@ -74,5 +78,20 @@ body{
 }
 
 .ui.top.attached h2{
+	color: #bc30db;
+}
+.alert{
+	position: relative;
+	top: 60px;
+}
+#username{
+	color: #bc30db;
+}
+#showBlog{
+	position: relative;
+	top: 85px;
+	word-wrap: break-word;
+}
+a.header{
 	color: #bc30db;
 }

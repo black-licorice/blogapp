@@ -1,4 +1,4 @@
-<%-include("partials/header")%>
+<%-include("./partials/header")%>
 	<h1 class="ui huge header" id="gradient-text">RESTful Blog</h1>
 		<div class="ui main text container" id="container">
 			<% blogs.forEach(function(blog, index, arr){%>
@@ -16,7 +16,11 @@
 								</div>
 							</div>
 							<div class="description">
-								<p class="blogBody"><%-blog.body.substring(0, 150)%>...</p>
+								<p id="blogBody">
+									<%if(blog.body){%>
+										<%-blog.body.substring(0, 150)%>...
+									<%}%>
+								</p>
 							</div>
 							<div class="extra">
 								<a class="ui floated inverted violet button" href="/blog/<%=blog._id%>">
@@ -32,4 +36,4 @@
 				</div>
 			<%});%>
 		</div>
-<%-include("partials/footer")%>
+<%-include("./partials/footer")%>

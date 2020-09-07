@@ -20,7 +20,7 @@
 				<a href="/register" class="item">Sign Up</a>
 				<a href="/login"class="item">Login</a>
 			<%}else{%>
-				<a class="item">Signed in as: <%=currentUser.username%></a>
+				<a class="item">Signed in as: <span id="username"><%=currentUser.username%></span></a>
 				<a href="/logout" class="item">Logout</a>
 			<%}%>
 		</div>
