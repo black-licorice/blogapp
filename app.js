@@ -8,6 +8,7 @@ var passport         = require("passport");
 var LocalStrategy    = require("passport-local");
 var flash       	 = require("connect-flash");
 const mongoose       = require("mongoose");
+var ejs              = require("ejs");
 
 
 //DATABASE
