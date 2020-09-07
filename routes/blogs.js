@@ -5,10 +5,6 @@ var Blog       = require("../models/blog");
 const mongoose = require("mongoose");
 var middleWare = require("../middleware");
 
-//===================================
-//=req.body.body = undefined line 33=
-//===================================
-
 //ROUTES
 router.get("/", function(req, res){
 	res.redirect("/blog");
@@ -46,14 +42,6 @@ router.post("/blog", function(req, res){
 			res.redirect("/blog");
 		}
 	});
-	// Blog.create(req.body.blog, function(err, newBlog){
-	// 	if(err){
-	// 		console.log("OH NO", err);
-	// 		res.render("new");
-	// 	}else{
-	// 		res.redirect("/blog");
-	// 	}
-	// });
 });
 //show
 router.get("/blog/:id", function(req, res){
