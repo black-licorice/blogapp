@@ -8,7 +8,6 @@ var passport         = require("passport");
 var LocalStrategy    = require("passport-local");
 var flash       	 = require("connect-flash");
 const mongoose       = require("mongoose");
-var ejs              = require("ejs");
 
 
 //DATABASE
@@ -23,6 +22,7 @@ mongoose.connect(process.env.DATABASEURL, {
 //CONFIGURATE
 var app = express();
 app.set("view engine", "ejs");
+app.set('views', __dirname + '/views');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
