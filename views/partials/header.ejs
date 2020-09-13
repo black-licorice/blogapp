@@ -3,28 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Blog App</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="/stylesheets/app.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="/stylesheets/nav.css">
+	<link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
-	
-	<div class="ui fixed inverted menu">
-		<div class="ui container">
-			<a href="/blog/about" class="header item"><i class="code icon"></i>Blog Site</a>
-			<a href="/blog" class="item">Home</a>
-			<a href="/blog/new" class="item">New Blog</a>
-		</div>
-		<div class="right inverted menu">
-			<% if(!currentUser){%>
-				<a href="/register" class="item">Sign Up</a>
-				<a href="/login"class="item">Login</a>
-			<%}else{%>
-				<a class="item">Signed in as: <span id="username"><%=currentUser.username%></span></a>
-				<a href="/logout" class="item">Logout</a>
-			<%}%>
-		</div>
-	</div>
+	<nav>
+        <div class="nav left">
+            <a href="/"><i class="code icon"></i>Blog Site</a>
+            <a href="/blog">Home</a>
+            <a href="/blog/new">New Blog</a>
+        </div>
+        <div class="nav right">
+		   <%if(!currentUser){%>
+			<a href="/register">Sign Up</a>
+			<a href="/login">Login</a>
+		   <%}else{%>
+		   <a>Signed in as: <span><%=currentUser.username%></span></a>
+			<a href="/logout">Logout</a>
+		   <%}%>
+        </div>
+    </nav>
 	<div class="container">
 		<%if(error && error.length>0){%>
 			<div class="alert alert-danger" role="alert">
@@ -37,3 +37,8 @@
 			</div>
 		<%}%>
 	</div>
+	<script>
+        document.querySelector("nav").addEventListener("mouseleave", function(){
+            document.querySelector("nav").setAttribute("class", "mouseAnim");
+        });
+    </script>

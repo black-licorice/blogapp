@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background: rgb(71,96,152);
+    opacity: 0.9;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 300;
+    position: fixed;
+}
+nav.mouseAnim{
+	opacity: 0.9;
+	animation: moveup 1s ease-in forwards;
+}
+nav:hover{
+    opacity: 1;
+    animation: movedown 0.5s ease-out forwards;
+    
+}
+@keyframes movedown{
+    from{
+        opacity: 0.9;
+        transform: translate(0, 0) scale(1) translateZ(0);
+    }
+    to{
+    	   opacity: 1;
+        transform: translate(10px, 0) scale(0.98) translateZ(0);
+        border: 2px solid white;
+        -webkit-box-shadow: -12px 13px 0px 0px rgba(177, 177, 177, 0.75);
+        -moz-box-shadow: -12px 13px 0px 0px rgba(177, 177, 177, 0.75);
+        box-shadow: -12px 13px 0px 0px rgba(177, 177, 177, 0.75);
+	   backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+}
+@keyframes moveup{
+    to{
+    	   opacity: 0.9;
+        transform: translate(0, 0) scale(1) translateZ(0);
+	    backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+    from{
+    	   opacity: 1;
+        transform: translate(10px, 0) scale(0.98) translateZ(0);
+        border: 2px solid white;
+        -webkit-box-shadow: -12px 13px 0px 0px rgba(177, 177, 177, 0.75);
+        -moz-box-shadow: -12px 13px 0px 0px rgba(177, 177, 177, 0.75);
+        box-shadow: -12px 13px 0px 0px rgba(177, 177, 177, 0.75);
+    }
+}
+a{
+    text-decoration: none;
+    color: white;
+    opacity: 0.75;
+}
+a:hover{
+    opacity: 1;
+    border-bottom: 1px solid white;
+    font-size: 16px;
+}
+.nav{
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px;
+}
+.nav.right{
+	flex-basis: 200px;
+}
+.nav.left:first-child{
+    margin-left: 10px;
+}
+.nav.right:last-child{
+    margin-right: 10px;
+}
+@media screen and (max-width: 620px){
+    nav{
+        font-size: 12px;
+    }
+}
