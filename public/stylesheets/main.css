@@ -26,27 +26,28 @@ body{
 	flex-direction: column;
 }
 .page-container{
+	margin-top: 75px;
+	margin-bottom: 50px;
 	background: #476098;
 	border: 5px solid white;
 	-webkit-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
-    -moz-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);  
-    box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
+     -moz-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);  
+     box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
 }
 .title{
-	margin-bottom: 50px;
+	
 	height: 75px;
 	width: 50%;
 	padding-top: 20px;
 	background: #476098;
-	background: #476098 ;
 	margin-left: auto;
 	margin-right: auto;
-    text-align: center;
-    color:rgba(255, 255, 255, 0.85);
-    -webkit-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
-    -moz-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);  
-    box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
-    border: white solid 5px;
+     text-align: center;
+     color:rgba(255, 255, 255, 0.85);
+     -webkit-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
+     -moz-box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);  
+     box-shadow: -15px 15px 0px 0px rgba(117, 117, 117, 0.75);
+     border: white solid 5px;
     text-shadow: -7px 7px 0px rgba(75,75,75, 0.85);
 }
 .post-image{
@@ -63,6 +64,7 @@ body{
 }
 .date-container{
 	color: white;
+	margin-top: 20px;
 }
 .date{
 	font-weight: 800;
@@ -74,7 +76,6 @@ body{
 	color: white;
 	font-size: 20px;
 	margin-top: 30px;
-	margin-bottom: 20px;
 	border-bottom: 1px solid white;
 }
 .post-title{
@@ -86,16 +87,145 @@ body{
 	font-size: 40px;
 	padding: 30px;
 }
+.show-body{
+	margin: 25px 0;
+	word-wrap: break-word;
+	font-size: 14px;
+	color: white;
+}
+.show-body a{
+	font-size: 1em;
+	color: white;
+	opacity: 0.75;
+}
+.show-body a:hover{
+	font-size: 18px;
+	opacity: 1;
+	border-bottom: 1px solid white;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.btn{
+	border: 1px solid white;
+	text-align: center;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	opacity: 1;
+	background: #476098;
+}
+.btn.back{
+	border-color: #16c444;
+	color: #16c444;
+}
+.btn.back:hover{
+	color: white;
+	background-color: #16c444;
+}
+.btn.edit{
+	border-color: #62acde;
+	color: #62acde;
+}
+.btn.edit:hover{
+	background-color: #62acde;
+	color: white;
+}
+.btn.delete{
+	border-color: #c91a1a;
+	color: #c91a1a;
+	background-color: #476098;
+}
+.btn.delete:hover{
+	background-color: #c91a1a;
+	color: white;
+}
+.form-button{
+	display: inline;
+}
+.post-author{
+	margin-bottom: 30px;
+	color: white;
+}
+.author-username{
+	font-weight: 800;
+}
+.form-right{
+	float: right;
+}
+.form-title{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 170px;
+	height: 60px;
+	text-align: center;
+     color:rgba(255, 255, 255, 0.85);
+     -webkit-box-shadow: -10px -10px 0px 0px rgba(117, 117, 117, 0.75);
+     -moz-box-shadow: -10px -10px 0px 0px rgba(117, 117, 117, 0.75);  
+     box-shadow: -10px -10px 0px 0px rgba(117, 117, 117, 0.75);
+     border: white solid 5px;
+     text-shadow: -7px 7px 0px rgba(75,75,75, 0.85);
+	background: #476098;
+	margin: 0 auto;
+}
+.form-title.edit{
+	font-size: 30px;
+	font-weight: 800px;
+	width: 200px;
+	height: 80px;
+	text-shadow: none;
+}
+.form-container{
+	margin-top: 250px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 500px;
+	flex-basis: 40%;
+}
+.form-container.login{
+	margin-top: 100px;
+}
+.form{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 35px;
+	padding-bottom: 30px;
+}
+textarea{
+	width: 643px; 
+	height: 206px;
+	resize: none;
+	border-radius: 15px; 
+	text-indent: 10px;
+	padding: 10px;
+}
+input{
+	border-radius: 15px; 
+	text-indent: 10px;
+	border: 1px solid white;
+}
+.form .btn.edit{
+	margin-top: 20px;
+	width: 100px;
+	padding-left: 10px;
+	align-self: flex-end;
+}
+.form .btn.back{
+	margin-top: 10px;
+	width: 75px;
+}
+.form .btn.back.edit2{
+	width: 75px;
+	position: relative;
+	bottom: 62px;
+	margin: 0;
+}
+.form .btn.back.signup{
+	width: 90px;
+}
+label{
+	color: white;
+	margin: 10px auto;
+	font-size: 24px;
+	font-weight: 800px;
+}

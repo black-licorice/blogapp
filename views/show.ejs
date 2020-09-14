@@ -1,25 +1,26 @@
 <%-include("partials/header")%>
 
-	<div class="ui main text container segment" id="showBlog">
-		
-		<h2 class="ui huge header"><%=blog.title%></h2>
-		<div class="ui top attached">
-			<div class="item">
+	<div class="page-container post-container" id="showBlog">
+		<div class="post-title">
+			<h2><%=blog.title%></h2>
+		</div>
+			<div class="post-image">
 				<img class="ui centered rounded image" src="<%=blog.image%>" alt="/">
 			</div>
-			<div class="content">
-				<span class="createdDate">Created: <%=blog.created.toDateString()%></span>
-				<div id="blogBody"><%-blog.body%></div>
+			<div class="date-container">
+				Created: <span class="date"><%=blog.created.toDateString()%></span>
 			</div>
+			<div class="show-body"><%-blog.body%></div>
+		<p class="post-author">Posted by <span class="author-username"><%=blog.author.username%></span></p>
+		<a class="btn back" href="/blog">Back</a>
+		<div class="form-right">
+			<%if(currentUser && blog.author.id.equals(currentUser._id)){%>
+				<a class="btn edit"href="/blog/<%=blog._id%>/edit">EDIT</a>
+				<form class="form-button" action="/blog/<%=blog._id%>?_method=DELETE" method="POST">
+					<button class="btn delete">DELETE</button>
+				</form>
+			<%}%>
 		</div>
-		<p id="blogAuthor">Posted by <%=blog.author.username%></p>
-		<a class="ui green inverted button" href="/blog">Back</a>
-		<%if(currentUser && blog.author.id.equals(currentUser._id)){%>
-			<a class="ui blue inverted button"href="/blog/<%=blog._id%>/edit">EDIT</a>
-			<form class="form-button" action="/blog/<%=blog._id%>?_method=DELETE" method="POST">
-				<button class="ui red inverted button">DELETE</button>
-			</form>
-		<%}%>
 	</div>
 
 

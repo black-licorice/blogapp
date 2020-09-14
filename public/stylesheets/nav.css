@@ -66,6 +66,9 @@ a:hover{
     border-bottom: 1px solid white;
     font-size: 16px;
 }
+.signed-in-message{
+	
+}
 .nav{
     flex-grow: 0;
     flex-shrink: 1;
@@ -76,7 +79,7 @@ a:hover{
     margin: 50px;
 }
 .nav.right{
-	flex-basis: 200px;
+	flex-basis: 250px;
 }
 .nav.left:first-child{
     margin-left: 10px;

@@ -1,16 +1,12 @@
 <%-include("../partials/header")%>
-	<div class="ui main text container segment" id="newPost">
-		<div class="ui huge header">Register</div>
-		<form class="ui form" action="/register" method="POST">
-			<div class="field">
+	<div class="form-container login" id="newPost">
+		<h1 class="form-title">Register</h1>
+		<form class="form page-container" action="/register" method="POST">
 				<label for="username">Username</label>
 				<input type="text" name="username" placeholder="username" required>
-			</div>
-			<div class="field">
 				<label for="password">Password</label>
 				<input type="password" name="password" placeholder="password" required>
-			</div>
-			<button class="ui violet inverted button">Sign Up</button>
+			<button class="btn back signup">Sign Up</button>
 		</form>
 	</div>
 <%-include("../partials/footer")%>
