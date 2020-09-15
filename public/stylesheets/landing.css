@@ -36,6 +36,8 @@
     box-shadow: -11px 12px 0px 0px rgba(117, 117, 117, 0.75);
     border: white solid 5px;
     font-size: 15px;
+    opacity: 0;
+    animation: appear 0.5s 0.5s ease-in forwards;
 }
 .about div{
     text-align: center;
@@ -47,17 +49,6 @@
     -moz-box-shadow: -4px 4px 0px 0px rgba(255, 255, 255, 0.75);  
     box-shadow: -4px -4px 0px 0px rgba(255, 255, 255, 0.75);
     text-shadow: 3px 3px 0px rgba(75,75,75, 0.85);
-}
-@media(max-width: 1100px){
-    .about{
-        font-size: 12px;
-        width: 150px;
-        height: 225px;
-        transform: translate(-250px, 110px);
-    }
-    .start{
-        transform: translate(-50px, -100px);
-    }
 }
 .title{
     height: 70px;
@@ -76,6 +67,8 @@
     box-shadow: -11px 12px 0px 0px rgba(117, 117, 117, 0.75);
     border: white solid 5px;
     text-shadow: -7px 7px 0px rgba(75,75,75, 0.85);
+	opacity: 0;
+	animation: appear 0.5s 0.5s ease-in forwards;
 }
 .start{
     width: 300px;
@@ -87,6 +80,8 @@
     -webkit-box-shadow: -11px 12px 0px 0px rgba(117, 117, 117, 0.85);
     -moz-box-shadow: -11px 12px 0px 0px rgba(117, 117, 117, 0.85);  
     box-shadow: -11px 12px 0px 0px rgba(117, 117, 117, 0.85);
+	opacity: 0;
+	animation: appear 0.5s 0.5s ease-in forwards;
 }
 .gradient-text {
     background-color: #476098;
@@ -144,4 +139,25 @@
   }
 .about-right{
 	float: right;
+}
+@media(max-width: 1100px){
+    .about{
+        font-size: 12px;
+        width: 150px;
+        height: 225px;
+	    position: relative;
+	    left: 300px;
+	    top: 400px;
+	    animation: appear 0.5s 0.5s ease-in forwards;
+    }
+}
+@keyframes appear{
+	0%{
+		transform: translateY(10px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
