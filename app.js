@@ -3,29 +3,37 @@ var express          = require("express");
 var bodyParser       = require("body-parser");
 var methodOverride   = require("method-override");
 var expressSanitizer = require("express-sanitizer");
-var User             = require("./models/user")
+var User             = require("./models/user");
 var passport         = require("passport");
 var LocalStrategy    = require("passport-local");
 var flash       	 = require("connect-flash");
-const mongoose       = require("mongoose");
+var mongoose         = require("mongoose");
+var path 			 = require("path");
 
 //DATABASE
-mongoose.connect(process.env.DATABASEURL, {
+var URL = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp-camp';
+mongoose.connect(URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
-})
-	.then(() => console.log("Connected to DB"))
-	.catch(error => console.log(error.message));
+});
+mongoose.connection.on('connected', function(){
+	console.log('Connected to DB')
+});
+mongoose.connection.on('error', function(error){
+	console.log(error.message);
+});
 
 
 //CONFIGURATE
 var app = express();
+var SECRET = process.env.SECRET || 'jvhadskljhgaslkjghipruhkjvn305zß948832zß8&$KGngw95'
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(require("express-session")({
-	secret: "bruhuhruehhijbjahbrhurubruhkdkfaiou38y387534q9450qi1gr9f67qgfqoubfq0349u973ghqeroiyrg08q47hpo1ihrpquh747ihjkbyfrsbruh",
+	secret: SECRET,
 	resave: false,
 	saveUninitialized: true
 }));
@@ -54,7 +62,7 @@ app.use(routes);
 app.use(authRoutes);
 
 //SERVER
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+var PORT = process.env.PORT || 3000;
+app.listen(PORT, function(){
     console.log(`The app is running on port ${ PORT }`);
 });
